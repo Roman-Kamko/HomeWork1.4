@@ -76,13 +76,15 @@ public class Main {
             System.out.println("Всего свободных мест в вагоне " + totalFreePlace);
         }
 
-        if (takenSittingPlace < totalSittingPlace && totalTakenPlace < totalPassengerCapacity) {        // Чтобы в консоль не выводилась инфа в случае имеющихся свободных сидячих мест если будет перегруз
+        boolean noOverload = totalTakenPlace < totalPassengerCapacity;                                  // Чтобы в консоль не выводилась инфа в случае имеющихся свободных сидячих мест если будет перегруз
+
+        if (takenSittingPlace < totalSittingPlace && noOverload) {
             System.out.println("Сидячих мест осталось " + freeSittingPlace);
         } else if (takenSittingPlace == totalSittingPlace) {
             System.out.println("В вагоне больше нет сидячих мест!");
         }
 
-        if (takenStandingPlace < totalStandingPlace && totalTakenPlace < totalPassengerCapacity) {
+        if (takenStandingPlace < totalStandingPlace && noOverload) {
             System.out.println("Стоячих мест осталось " + freeStandingPlace);
         } else if (takenStandingPlace == totalStandingPlace) {
             System.out.println("В вагоне больше нет стоячих мест!");
