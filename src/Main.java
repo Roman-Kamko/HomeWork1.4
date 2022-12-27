@@ -68,9 +68,9 @@ public class Main {
             System.out.println("В вагоне больше нет мест!");
         } else if (totalTakenPlace > totalPassengerCapacity) {
             System.out.println("Ошибка! Пассажиров в вагоне больше допустимого значения");
-        } else if (takenStandingPlace > totalStandingPlace) {                                           // Предупреждает об отсутствие стоячих мест, но выведет имеющиеся свободные сидячие места
+        } else if (takenStandingPlace > totalStandingPlace) {                                           // Предупреждает об отсутствие стоячих мест, но выведет имеющиеся свободные сидячие места в случае отсутствия перегруза
             System.out.println("Ошибка! В вагоне больше нет сточих мест!");
-        } else if (takenSittingPlace > totalSittingPlace) {                                             // Предупреждает об отсутствие сидячих мест, но выведет имеющиеся свободные стоячие места
+        } else if (takenSittingPlace > totalSittingPlace) {                                             // Предупреждает об отсутствие сидячих мест, но выведет имеющиеся свободные стоячие места в случае отсутствия перегруза
             System.out.println("Ошибка! В вагоне больше нет сидячих мест!");
         } else {
             System.out.println("Всего свободных мест в вагоне " + totalFreePlace);
@@ -86,6 +86,26 @@ public class Main {
             System.out.println("Стоячих мест осталось " + freeStandingPlace);
         } else if (takenStandingPlace == totalStandingPlace) {
             System.out.println("В вагоне больше нет стоячих мест!");
+        }
+
+        // task 7
+        System.out.println("Задание 7");
+        int one = 221;
+        int two = 22;
+        int three = 221;
+
+        if (one > two && one > three) {
+            System.out.println("Наибольшее из трех чисел " + one);
+        } else if (two > one && two > three) {
+            System.out.println("Наибольшее из трех чисел " + two);
+        } else if (three > one && three > two) {
+            System.out.println("Наибольшее из трех чисел " + three);
+        } else if (one == two || one == three) {
+            System.out.println("Наибольшее из трех чисел " + one);
+        } else if (two == one || two == three) {
+            System.out.println("Наибольшее из трех чисел " + two);
+        } else if (three == one || three == two) {
+            System.out.println("Наибольшее из трех чисел " + three);
         }
     }
 }
