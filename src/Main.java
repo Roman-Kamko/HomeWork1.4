@@ -53,34 +53,38 @@ public class Main {
 
         // task 6
         System.out.println("Задание 6");
-        int wagonPassengerCapacity = 102;
-        int wagonSittingPlace = 60;
-        int wagonStandingPlace = wagonPassengerCapacity - wagonSittingPlace; // => 42
+        int totalPassengerCapacity = 102;
+        int totalSittingPlace = 60;
+        int totalStandingPlace = totalPassengerCapacity - totalSittingPlace; // => 42
 
-        int takenSittingPlace = 59;
-        int freeSittingPlace = wagonSittingPlace - takenSittingPlace;
-        int takenStandingPlace = 37;
-        int freeStandingPlace = wagonStandingPlace - takenStandingPlace;
-        int numTakenPlace = takenSittingPlace + takenStandingPlace;
-        int numFreePlace = wagonPassengerCapacity - numTakenPlace;
+        int takenSittingPlace = 60;
+        int freeSittingPlace = totalSittingPlace - takenSittingPlace;
+        int takenStandingPlace = 41;
+        int freeStandingPlace = totalStandingPlace - takenStandingPlace;
+        int totalTakenPlace = takenSittingPlace + takenStandingPlace;
+        int totalFreePlace = totalPassengerCapacity - totalTakenPlace;
 
-        if (numTakenPlace == wagonPassengerCapacity) {
+        if (totalTakenPlace == totalPassengerCapacity) {
             System.out.println("В вагоне больше нет мест!");
-        } else if (numTakenPlace > 102){
+        } else if (totalTakenPlace > totalPassengerCapacity) {
             System.out.println("Ошибка! Пассажиров в вагоне больше допустимого значения");
+        } else if (takenStandingPlace > totalStandingPlace) {                                           // Предупреждает об отсутствие стоячих мест, но выведет имеющиеся свободные сидячие места
+            System.out.println("Ошибка! В вагоне больше нет сточих мест!");
+        } else if (takenSittingPlace > totalSittingPlace) {                                             // Предупреждает об отсутствие сидячих мест, но выведет имеющиеся свободные стоячие места
+            System.out.println("Ошибка! В вагоне больше нет сидячих мест!");
         } else {
-            System.out.println("Свободных мест в вагоне " + numFreePlace);
+            System.out.println("Всего свободных мест в вагоне " + totalFreePlace);
         }
 
-        if (takenSittingPlace < 60 && numTakenPlace < wagonPassengerCapacity) {
+        if (takenSittingPlace < totalSittingPlace && totalTakenPlace < totalPassengerCapacity) {        // Чтобы в консоль не выводилась инфа в случае имеющихся свободных сидячих мест если будет перегруз
             System.out.println("Сидячих мест осталось " + freeSittingPlace);
-        } else if (takenSittingPlace == 60 && numTakenPlace < wagonPassengerCapacity) {
+        } else if (takenSittingPlace == totalSittingPlace) {
             System.out.println("В вагоне больше нет сидячих мест!");
         }
 
-        if (takenStandingPlace < 42 && numTakenPlace < wagonPassengerCapacity) {
+        if (takenStandingPlace < totalStandingPlace && totalTakenPlace < totalPassengerCapacity) {
             System.out.println("Стоячих мест осталось " + freeStandingPlace);
-        } else if (takenStandingPlace == 42 && numTakenPlace < wagonPassengerCapacity) {
+        } else if (takenStandingPlace == totalStandingPlace) {
             System.out.println("В вагоне больше нет стоячих мест!");
         }
     }
